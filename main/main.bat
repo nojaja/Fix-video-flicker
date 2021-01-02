@@ -2,6 +2,7 @@
 @setlocal enabledelayedexpansion
 set current_dir=%~dp0
 set tmp_dir=%current_dir%tmp\
+set OUTPUT_PATH=%current_dir%results\
 
 rem Aviutlの場所とAUCの場所を指定する。デフォルトはバッチファイルと同じ場所。
 set AVIUTL="%current_dir%aviutl\aviutl.exe"
@@ -22,7 +23,7 @@ echo Aviutl WINDOW_ID:!WINDOW_ID!
 
 FOR %%J IN (%path%\*.mov) DO (
   set INPUT_FILE=%%J
-  set OUTPUT_FILE=!path!\%%~nJ.mp4
+  set OUTPUT_FILE=!OUTPUT_PATH!%%~nJ.mp4
   if not exist "!OUTPUT_FILE!" (
     echo ==================================
     echo アンチフリッカー処理開始 filename : !INPUT_FILE!
